@@ -1,0 +1,151 @@
+INITIAL
+OnTable(A)
+OnTable(B)
+OnTable(C)
+Clear(A)
+Clear(B)
+Clear(C)
+HandEmpty
+
+GOAL
+On(A, B)
+On(B, C)
+
+ACTIONS
+PickUp(A)
+    PRE:
+        OnTable(A)
+        Clear(A)
+        HandEmpty
+    ADD:
+        Holding(A)
+    DEL:
+        OnTable(A)
+        Clear(A)
+        HandEmpty
+
+PickUp(B)
+    PRE:
+        OnTable(B)
+        Clear(B)
+        HandEmpty
+    ADD:
+        Holding(B)
+    DEL:
+        OnTable(B)
+        Clear(B)
+        HandEmpty
+
+PickUp(C)
+    PRE:
+        OnTable(C)
+        Clear(C)
+        HandEmpty
+    ADD:
+        Holding(C)
+    DEL:
+        OnTable(C)
+        Clear(C)
+        HandEmpty
+
+PutDown(A)
+    PRE:
+        Holding(A)
+    ADD:
+        OnTable(A)
+        Clear(A)
+        HandEmpty
+    DEL:
+        Holding(A)
+
+PutDown(B)
+    PRE:
+        Holding(B)
+    ADD:
+        OnTable(B)
+        Clear(B)
+        HandEmpty
+    DEL:
+        Holding(B)
+
+PutDown(C)
+    PRE:
+        Holding(C)
+    ADD:
+        OnTable(C)
+        Clear(C)
+        HandEmpty
+    DEL:
+        Holding(C)
+
+Stack(A, B)
+    PRE:
+        Holding(A)
+        Clear(B)
+    ADD:
+        On(A, B)
+        Clear(A)
+        HandEmpty
+    DEL:
+        Holding(A)
+        Clear(B)
+
+Stack(A, C)
+    PRE:
+        Holding(A)
+        Clear(C)
+    ADD:
+        On(A, C)
+        Clear(A)
+        HandEmpty
+    DEL:
+        Holding(A)
+        Clear(C)
+
+Stack(B, A)
+    PRE:
+        Holding(B)
+        Clear(A)
+    ADD:
+        On(B, A)
+        Clear(B)
+        HandEmpty
+    DEL:
+        Holding(B)
+        Clear(A)
+
+Stack(B, C)
+    PRE:
+        Holding(B)
+        Clear(C)
+    ADD:
+        On(B, C)
+        Clear(B)
+        HandEmpty
+    DEL:
+        Holding(B)
+        Clear(C)
+
+Stack(C, A)
+    PRE:
+        Holding(C)
+        Clear(A)
+    ADD:
+        On(C, A)
+        Clear(C)
+        HandEmpty
+    DEL:
+        Holding(C)
+        Clear(A)
+
+Stack(C, B)
+    PRE:
+        Holding(C)
+        Clear(B)
+    ADD:
+        On(C, B)
+        Clear(C)
+        HandEmpty
+    DEL:
+        Holding(C)
+        Clear(B)

@@ -1,0 +1,33 @@
+INITIAL
+At(Flat, Axle)
+At(Spare, Trunk)
+
+GOAL
+At(Spare, Axle)
+
+ACTIONS
+Remove(Flat, Axle)
+    PRE:
+        At(Flat, Axle)
+    ADD:
+        At(Flat, Ground)
+    DEL:
+        At(Flat, Axle)
+
+Remove(Spare, Trunk)
+    PRE:
+        At(Spare, Trunk)
+    ADD:
+        At(Spare, Ground)
+    DEL:
+        At(Spare, Trunk)
+
+PutOn(Spare, Axle)
+    PRE:
+        At(Spare, Ground)
+        At(Flat, Ground)
+    ADD:
+        At(Spare, Axle)
+    DEL:
+        At(Spare, Ground)
+        At(Flat, Ground)
